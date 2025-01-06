@@ -173,7 +173,7 @@ console.log(errorss,'errors');
               </svg>
               <span className="text-sm">Upload</span>
             </label>
-            <input id="profilePic" name="profilePic" type="file" className="hidden" onChange={handleform} />
+            <input id="profilePic" name="profilePic" type="file" accept="image/*" className="hidden" onChange={handleform} />
             
           </div>
             {errorss.profilePic && <p className="tracking-wide text-center text-[12px] text-red-500 font-mono">{errorss.profilePic}</p>}
