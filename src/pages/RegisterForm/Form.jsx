@@ -57,7 +57,13 @@ export const Form = () => {
         errors.firstName = "FirstName is Required"
      }else if(firstName.length < 3){
         errors.firstName = "Atleast 3 character required"
-     }
+     }else {
+      const nameRegex = /^[A-Za-z]+$/; // This regex allows only alphabets (both uppercase and lowercase)
+      
+      if(!nameRegex.test(firstName)) {
+        errors.firstName = "First Name must contain only letters";
+      }
+    }
 
      if(email.trim() === ""){
       errors.email = "Email is required "
