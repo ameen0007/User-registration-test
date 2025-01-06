@@ -1,0 +1,29 @@
+.left-div{
+
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
+
+}
+@media (max-width: 768px) {
+    .left-div{
+      display: flex;
+      flex-direction: column;
+      justify-content:flex-start;
+      align-items: center;
+      background-color: rgb(233, 235, 234);
+    position: absolute;
+    width: 100%;
+       top: 0;
+       height: 100vh;
+       padding-top: 80px;
+       gap: 50px;
+
+       transform: translateX(-100%);
+       transition: transform 0.5s ease-in-out;
+    }
+    .left-div.active{
+        transform: translateX(0%);
+    }
+   
+  }
