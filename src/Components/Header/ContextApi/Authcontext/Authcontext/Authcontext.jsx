@@ -80,6 +80,23 @@ import { createContext, useEffect, useState } from "react"
             console.error("Error uploading", error);
           }
         };
+
+        const updateUserData = async (updatedData) => {
+          console.log("Updating user data...");
+          try {
+            const data = await db.userData.toArray();
+            if (Array.isArray(data) && data.length > 0) {
+              const userId = data[0].id; // Assuming there's only one user
+              await db.userData.put({ id: userId, ...updatedData }); // Replace the old record with the new state
+              console.log("User data updated in IndexedDB:", updatedData);
+              setUserDetails(updatedData); // Update state with the new data
+            } else {
+              console.log("No user data found to update.");
+            }
+          } catch (error) {
+            console.error("Error updating user data in IndexedDB:", error);
+          }
+        };
         
       
 
@@ -92,7 +109,7 @@ import { createContext, useEffect, useState } from "react"
       
     return(
          
-          <Authcontext.Provider value={{uploaddata,clearAllUserData,setUserDetails, userdetails,loading , setLoading,auth,getUserData,setAuth}}>
+          <Authcontext.Provider value={{updateUserData,uploaddata,clearAllUserData,setUserDetails, userdetails,loading , setLoading,auth,getUserData,setAuth}}>
             {children}
          </Authcontext.Provider>
     )

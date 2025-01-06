@@ -5,6 +5,8 @@ import { Homepage } from './pages/Homepage/Homepage'
 import { Route, Routes } from 'react-router-dom'
 import { Form } from './pages/RegisterForm/Form'
 import { Protectedlogin } from './Components/Header/ContextApi/Authcontext/Authprotected/Authprocted'
+import { ProfilePage } from './pages/Profilpage/Profilepage'
+
 
 
 function App() {
@@ -15,7 +17,9 @@ function App() {
     <Routes>
     <Route element={<Protectedlogin/>} >
     <Route path='/signup' element={<Form/>} />
+    
     </Route>
+    <Route path="/Profile"  element={<ProfilePage/>} />
     <Route path='/' element={<Homepage/>} />
     </Routes>
     </>

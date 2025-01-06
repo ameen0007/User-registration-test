@@ -5,6 +5,7 @@ import { Authcontext } from "../../Components/Header/ContextApi/Authcontext/Auth
 import Dexie from "dexie";
 import { useNavigate } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
+import { Loader } from "../../Components/Header/Loader/Loader";
 
 export const Form = () => {
      const navigate = useNavigate()
@@ -144,12 +145,7 @@ console.log(errorss,'errors');
 
   return (
     <div className=" relative flex items-center justify-center min-h-screen bg-gray-100">
-    {loading && (
-        <>
-          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm z-20"></div>
-          <ClipLoader className="absolute z-30" color="rgb(79 70 229" size={50} />
-        </>
-      )}
+    {loading && <Loader/>}
       <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-semibold text-center text-gray-700 mb-6">
           User Registration
